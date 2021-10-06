@@ -161,13 +161,21 @@ sections:
   entries:
   - title: Refereed Publications
     entries:
-    - title: Understanding Heating in Active Region Cores through Machine Learning II. Classifying Observations 
+    - title: "Understanding Heating in Active Region Cores through Machine Learning II. Classifying Observations"
       authors:
       - W. T. Barnes
       - S. J. Bradshaw
       - N. M. Viall
-      journal: in prep
-      year: 2020
+      journal: ApJ
+      year: 2021
+      doi: "10.3847/1538-4357/ac1514"
+    - title: "Forecasting the Remaining Duration of an Ongoing Solar Flare"
+      authors:
+      - J. W. Reep
+      - W. T. Barnes
+      journal: SpWea
+      doi: "10.1029/2021SW002754"
+      year: 2021
     - title: "aiapy: A Python Package for Analyzing Solar EUV Image Data from AIA"
       journal: JOSS
       year: 2020
@@ -522,6 +530,14 @@ sections:
   - title: Workshops
     entries:
     - dates:
+        day: 4
+        month: 6
+        year: 2021
+      location: Virtual
+      event: "Workshops at the 238th Meeting of the American Astronomical Society"
+      title: "Introduction to SunPy and the Python in Heliophysics Community"
+      institution: American Astronomical Society
+    - dates:
         start:
           day: 27
           month: 1
@@ -561,6 +577,33 @@ sections:
       doi: "10.5281/zenodo.4042814"
   - title: Posters
     entries:
+    - dates:
+        start:
+          day: 3
+          month: 5
+          year: 2021
+        end:
+          day: 7
+          month: 5
+          year: 2021
+      location: Virtual
+      event: Heliophysics 2050 Workshop
+      title: "The Ongoing Development and Support of Atomic Physics in Solar and Heliospheric Science"
+      institution: "Lunar and Planetary Institute"
+    - dates:
+        start:
+          day: 1
+          month: 12
+          year: 2020
+        end:
+          day: 17
+          month: 12
+          year: 2020
+      location: Virtual
+      event: American Geophysical Union Fall Meeting
+      title: "Understanding Heating Properties in Hot and Warm Active Region Loops through Hydrodynamics and Forward Modeling"
+      institution: American Geophysical Union
+      bibcode: "2020AGUFMSH0370003B"
     - dates: 
         start:
           day: 9
@@ -674,6 +717,7 @@ sections:
 - title: Professional Service
   reviewer_for:
   - The Astrophysical Journal
+  - The Journal of Open Source Software
   entries:
   - role: Member of Scientific Organizing Committee
     event: Python in Astronomy Conference 2020
@@ -846,7 +890,7 @@ sections:
     dates: 2010, 2011
 - title: Memberships
   entries:
-  - American Astronomical Society, Solar Physics Division (Junior Membership)
+  - American Astronomical Society, Solar Physics Division
   - Phi Beta Kappa
   - Sigma Pi Sigma
 - title: Other Employment Experience
