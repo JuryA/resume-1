@@ -1,61 +1,31 @@
 preamble:
   name:
-    first: Will
-    middle: Thomas
-    last: Barnes
+    first: Dominik
+    last: Helán
   address:
-    street: Space Science Division, U.S. Naval Research Laboratory
-    city: Washington, D.C.
-    country: USA
+    street: Klajdovská 45
+    city: Brno
+    country: Czech Republic
   contact:
-    mail: will.t.barnes@gmail.com
-    webpage: "https://wtbarnes.github.io"
-    twitter: wtbarnes_
-    github: wtbarnes
-    orcid: "0000-0001-9642-6089"
-    gitlab: wtbarnes
-    googlescholar:
-      id: "DSjKF4gAAAAJ&hl"
-      name: Will Barnes
+    mail: dominikhelan@gmail.com
+    webpage: "https://www.linkedin.com/in/dominik-helan/"
+    github: dominikhelan
+    linkedin: dominik-helan
   current:
-    role: NRC Postdoctoral Research Associate
+    role: Maintenance Test Technician
 sections:
 - title: Personal Information
   entries:
-  - name: Birthdate
-    value: 15 Oct. 1990
-  - name: Citizenship
-    value: USA
 - title: Education
   entries:
-  - school: Rice University
-    degree: Ph.D. Physics
-    location: Houston, TX
-    dates:
-      start: 2016
-      end: 2019
-    gpa:
-    entries:
-      - "Thesis: Diagnosing the Frequency of Energy Deposition in the Magnetically-Closed Solar Corona"
-      - "Advisor: Dr. Stephen Bradshaw"
-  - school: Rice University
-    degree: M.S. Physics
-    location: Houston, TX
-    gpa: "GPA: 3.88/4.00"
+  - school: SSTE Brno, Olomoucka 61
+    degree: Maturita certificate
+    location: Brno
     dates:
       start: 2013
-      end: 2016
-  - school: Baylor University
-    location: Waco, TX
-    dates:
-      start: 2009
-      end: 2013
-    gpa: "GPA: 3.89/4.00"
-    degree: "B.S. Astrophysics"
+      end: 2018
+    gpa: Electrical engineer - Mechatronics
     entries:
-      - "Thesis: Astrophysical Applications of Dusty Plasma Physics, Advisor: Dr. Lorin Matthews"
-      - University Honors Program, Magna Cum Laude, Phi Beta Kappa, Dean's List
-      - "Minors: Mathematics, Great Texts of the Western Tradition"
 - title: Experience
   entries:
   - title: NRC Postdoctoral Research Associate
