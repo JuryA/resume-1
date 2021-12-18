@@ -32,10 +32,18 @@ def tex_section_sorter(section, title, index):
     """Change format based on section. Customized for my specific setup"""
     cv_listitem_format = '\cvlistitem{{{}}}'
     if title == 'Education':
-        return_list =  [section['dates'], section['degree'], section['school'], section['location'], section['gpa'] if section['gpa'] else '', '']
+        return_list = [
+            section['dates'],
+            section['degree'],
+            section['school'],
+            section['location'],
+            section['gpa'] or '',
+            '',
+        ]
+
         if section['cvlistitems']:
             return_list[-1] = '\n'.join([cv_listitem_format.format(i) for i in section['cvlistitems']])
-    elif title == 'Talks' or title == 'Conference Papers and Posters':
+    elif title in ['Talks', 'Conference Papers and Posters']:
         return_list = [section['dates'], section['institution'], section['event'], section['location'], '', f'\\textit{{{section["title"]}}}']
         if section['url']:
             return_list[-1] = f'\href{{{section["url"]}}}{{\\textit{{{section["title"]}}}}}'
@@ -43,7 +51,7 @@ def tex_section_sorter(section, title, index):
         return_list = [section['dates'], section['title'], section['institution'], section['location'], '', section['description']]
     elif title == 'Teaching Experience':
         return_list = [section['dates'], section['title'], section['class'], '', '', section['description']]
-    elif title == 'Societies and Associations' or title=='Employment Experience':
+    elif title in ['Societies and Associations', 'Employment Experience']:
         return_list = [section['dates'], section['title'], section['org'], '', '', section['description']]
     else:
         logging.error('Unrecognized title: %s'%(title))
@@ -67,8 +75,8 @@ def md_section_sorter(entry, title):
     if title == 'Education':
         return_str = '%s, %s / %s '%(entry['degree'], entry['dates'], entry['school'])
         if entry['cvlistitems']:
-            return_str += ' / ' + ' / '.join([item for item in entry['cvlistitems']])
-    elif title == 'Talks' or title == 'Conference Papers and Posters':
+            return_str += ' / ' + ' / '.join(list(entry['cvlistitems']))
+    elif title in ['Talks', 'Conference Papers and Posters']:
         if entry['url']:
             return_str = f'[*{entry["title"]}*]({entry["url"]}) / {entry["event"]} / {entry["institution"]} / {entry["location"]} / {entry["dates"]}'
         else:
@@ -160,9 +168,9 @@ def date_filter(date, format='full', drop_present=False):
         month = f'{calendar.month_abbr[month]}'
     if format == 'numerical_short_year' and year is not None:
         year = f'{str(year)[2:]}'
-    if format == 'full' or format == 'abbreviated':
+    if format in ['full', 'abbreviated']:
         return ' '.join([f'{i}' for i in (day, month, year) if i is not None])
-    elif format == 'numerical' or format == 'numerical_short_year':
+    elif format in ['numerical', 'numerical_short_year']:
         return '/'.join([f'{i}' for i in (day, month, year) if i is not None])
     else:
         raise ValueError('Invalid format')
@@ -171,18 +179,21 @@ def date_filter(date, format='full', drop_present=False):
 def date_range_filter(dates, format='full', drop_present=False):
     if type(dates) is not dict or ('start' not in dates and 'end' not in dates):
         return date_filter(dates, format=format, drop_present=drop_present)
-    else:
-        start = dates['start']
-        end = dates['end']
+
+    start = dates['start']
+    end = dates['end']
         # Remove redundant entries if possible
-        if type(start) is dict and type(end) is dict:
-            if start['year'] == end['year']:
-                del start['year']
-                if start['month'] == end['month']:
-                    del start['month']
-        start = date_filter(start, format=format, drop_present=drop_present)
-        end = date_filter(end, format=format, drop_present=drop_present)
-        return f'{start} -- {end}'
+    if (
+        type(start) is dict
+        and type(end) is dict
+        and start['year'] == end['year']
+    ):
+        del start['year']
+        if start['month'] == end['month']:
+            del start['month']
+    start = date_filter(start, format=format, drop_present=drop_present)
+    end = date_filter(end, format=format, drop_present=drop_present)
+    return f'{start} -- {end}'
 
 
 def latex_repo_icon_filter(repo_url):
